@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using VesperaWebApp.AppDbContext;
+using VesperaWebApp.Repositories;
+
 namespace VesperaWebApp
 {
     public class Startup
@@ -16,7 +18,7 @@ namespace VesperaWebApp
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            //services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
             services.AddControllers();
         }
