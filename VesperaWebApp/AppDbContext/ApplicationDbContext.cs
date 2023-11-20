@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using VesperaWebApp.Models;
 
 namespace VesperaWebApp.AppDbContext
@@ -9,20 +10,14 @@ namespace VesperaWebApp.AppDbContext
         { 
         }
 
-        public DbSet<BaseEntity> BaseEntity { get; set; }
+        public DbSet<ImageEntityModel> Images { get; set; }
+        public DbSet<EmailEntityModel> Emails { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<BaseEntity>().HasData(GetSeedDataBaseEntity());
-        }
-
-        private static BaseEntity GetSeedDataBaseEntity()
-        {
-            return new BaseEntity
-            {
-                Id = 1,
-                Name = "Test",
-            };
+            modelBuilder.Entity<ImageEntityModel>().HasKey(e => e.Id);
+            modelBuilder.Entity<EmailEntityModel>().HasKey(e => e.Id);
         }
     }
 }
