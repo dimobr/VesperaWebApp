@@ -7,10 +7,12 @@ import { AppComponent } from './app.component';
 import { HomepageContainerComponent } from './homepage/homepage-container/homepage-container.component';
 import { HeaderComponent } from './homepage/header/header.component';
 import { FooterComponent } from './homepage/footer/footer.component';
+import { LoginPageComponent } from './login-page/login-page.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,
