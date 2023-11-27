@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using VesperaWebApp.AppDbContext;
 using VesperaWebApp.Repositories;
+using VesperaWebApp.Services;
 
 namespace VesperaWebApp
 {
@@ -19,6 +20,7 @@ namespace VesperaWebApp
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddSingleton<IFormRegistrationService, FormRegistrationService>();
 
             services.AddControllers();
         }
